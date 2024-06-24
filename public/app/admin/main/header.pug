@@ -1,0 +1,80 @@
+nav.navbar.navbar-default(role='navigation')
+	.container-fluid
+		//.navbar-header
+				a.slidebar-toggle.back(href='javascript:history.back();')
+						i.glyphicon.glyphicon-arrow-left
+				a.slidebar-toggle.refresh(href='javascript:location.reload();')
+						i.fa.fa-refresh
+		ul.nav.navbar-nav.navbar-left
+			li
+				a(href='#/users')
+					i.glyphicon.glyphicon-user
+					| 	Users
+			li
+				a(href='#/userAction')
+					i.fa.fa-list
+					| 	Log action
+			li
+				a(href='#/userError')
+					i.glyphicon.glyphicon-fire.text-red(ng-if='logs > 0')
+					i.glyphicon.glyphicon-fire(ng-if='logs == 0')
+					| 	Log error
+					span.badge.m-left-5.bg-red(ng-if='logs > 0')  {{logs}}
+			li.dropdown
+				a.dropdown-toggle(href='' data-toggle='dropdown')
+					i.glyphicon.glyphicon-list
+					| 	Drafts
+					span.caret
+				ul.dropdown-menu(role='menu')
+					li
+						a(href='#/draftGender')
+							i.glyphicon.glyphicon-list
+							| 	Draft Gender
+					li
+						a(href='#/draftActorRole')
+							i.glyphicon.glyphicon-list
+							| 	Draft Actor Role
+
+		ul.nav.navbar-nav.navbar-right
+			li.dropdown
+				a.dropdown-toggle(href='' data-toggle='dropdown')
+					b   {{userName}} &nbsp
+					i.fa.fa-cog.fa-spin.font-20
+				ul.dropdown-menu(role='menu')
+					li
+						a(href='' ng-click='editProfile()')
+							i.glyphicon.glyphicon-user
+							| 	Profile
+					li
+						a(href='' ng-click='resetPw()')
+							i.glyphicon.glyphicon-edit
+							| 	Reset password
+					li.divider
+					li
+						a(href='/auth/logout' ng-click='logOut()')
+							i.glyphicon.glyphicon-off
+							| 	Log Out
+
+script.
+	$(document).ready(function () {
+		$('.dropdown').hover(
+						function () {
+							$('.dropdown-menu', this).stop(true, true).slideDown(0);
+							$(this).removeClass('open');
+						},
+						function () {
+							$('.dropdown-menu', this).stop(true, true).slideUp(0);
+							$(this).removeClass('open');
+						}
+		);
+		$('.dropdown').click(
+						function (e) {
+							e.stopPropagation();
+							$(this).removeClass('open');
+						}
+		);
+		$('body').tooltip({
+			trigger: 'hover',
+			selector: '[data-toggle="tooltip"]'
+		});
+	});

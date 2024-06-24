@@ -1,0 +1,14 @@
+.modal-body
+  .col-xs-12.height-title-pdf
+    .col-lg-7.col-md-6.col-xs-7.p-0
+      span.modal-title.ellipsis(ng-bind='fileName')
+    .col-lg-5.col-md-6.col-xs-5.p-0.text-right
+      button.btn.btn-sm.btn-default.pull-right(ng-click='$dismiss();')
+        i.glyphicon.glyphicon-remove
+        b   Close
+      button.btn.btn-info.btn-sm.pull-right.m-right-5(ng-click='download();' ng-if='fileName' title='Download file')
+        i.glyphicon.glyphicon-download-alt
+        b.xs-display-none   Download
+  .col-xs-12.text-center.height-ifrm-pdf
+    embed#blob-ifr.ifrm-pdf-full(ng-src='{{::url}}' type='application/pdf' ng-if='!showIfrm' frameborder='0' allowfullscreen)
+    iframe#blob-ifr.ifrm-pdf-full(ng-src='{{::url}}' type='application/pdf' ng-if='showIfrm' frameborder='0' allowfullscreen)

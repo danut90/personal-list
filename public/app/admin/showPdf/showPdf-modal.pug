@@ -1,0 +1,9 @@
+.modal-body
+  .col-xs-12.height-title-pdf
+    span.modal-title.inline-block.m-top-8(ng-bind='::pdfTitle')
+    button.btn.btn-sm.btn-default.pull-right(ng-click='$dismiss();')
+      i.glyphicon.glyphicon-remove
+      b   Închide
+  .col-xs-12.text-center.height-ifrm-pdf
+    embed#blob-ifr.ifrm-pdf-full(ng-src='{{::url}}' type='application/pdf' ng-if='!showIfrm' frameborder='0' allowfullscreen)
+    iframe#blob-ifr.ifrm-pdf-full(ng-src='{{::url}}' type='application/pdf' ng-if='showIfrm' frameborder='0' allowfullscreen)

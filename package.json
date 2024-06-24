@@ -1,0 +1,75 @@
+{
+  "name": "personal-list",
+  "version": "1.0.0",
+  "description": "just a simple startup app",
+  "main": "server/server.js",
+  "scripts": {
+	"postinstall": "node ./node_modules/bower/bin/bower install",
+	"build": "gulp",
+	"start": "node server/server.js",
+	"jshint": "jshint -c .jshintrc --exclude-path .jshintignore .",
+	"jshint-staged": "lint-staged -c .lintstagedrc -q"
+  },
+  "dependencies": {
+	"@socket.io/redis-adapter": "^8.2.1",
+	"@socket.io/redis-emitter": "^5.1.0",
+	"async": "3.2.4",
+	"body-parser": "1.20.2",
+	"bower": "1.8.14",
+	"bwip-js": "^3.4.3",
+	"compression": "1.7.4",
+	"cookie-parser": "1.4.6",
+	"dbffile": "^1.9.2",
+	"express": "^4.18.2",
+	"express-timeout-handler": "^2.2.2",
+	"gulp": "^4.0.2",
+	"gulp-clean-css": "4.3.0",
+	"gulp-concat": "2.6.1",
+	"gulp-less": "^5.0.0",
+	"gulp-plumber": "1.2.1",
+	"gulp-uglify": "3.0.2",
+	"handlebars": "4.7.8",
+	"helmet": "6.0.0",
+	"jsonwebtoken": "9.0.2",
+	"jsonwebtoken-refresh": "5.7.0",
+	"konfig": "0.2.1",
+	"lodash": "4.17.21",
+	"moment": "^2.29.4",
+	"morgan": "1.10.0",
+	"multer": "^1.4.2",
+	"node-promise": "0.5.14",
+	"nodemailer": "6.9.4",
+	"pg": "8.11.3",
+	"phantom": "6.3.0",
+	"pug": "3.0.2",
+	"redis": "4.6.10",
+	"sequelize": "6.33.0",
+	"serve-favicon": "^2.5.0",
+	"socket.io": "^4.7.2",
+	"xml2js": "^0.6.0"
+  },
+  "devDependencies": {
+	"connect-livereload": "^0.6.1",
+	"debug": "4.3.4",
+	"gulp-clean": "^0.4.0",
+	"gulp-jshint": "^2.1.0",
+	"gulp-livereload": "^4.0.2",
+	"husky": "^8.0.1",
+	"jshint": "^2.13.5",
+	"lint-staged": "^13.0.3",
+	"nodemon": "^2.0.19",
+	"pre-commit": "^1.2.2",
+	"with-env": "^1.0.0"
+  },
+  "engines": {
+	"node": "20.9.0"
+  },
+  "repository": {
+	"type": "git",
+	"url": "https://github.com/danut90/personal-list.git"
+  },
+  "private": true,
+  "pre-commit": [
+	"jshint"
+  ]
+}

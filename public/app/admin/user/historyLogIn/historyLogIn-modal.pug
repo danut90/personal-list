@@ -1,0 +1,16 @@
+.modal-header
+  span LogIn history for user: {{::row.first_name}} {{::row.last_name}}
+.modal-body
+  .row
+    h3.text-center.text-danger(ng-show='!gridHistoryLogIn.data.length') The user has not logged in !!!
+    .section(ng-show='!!gridHistoryLogIn.data.length')
+      .col-lg-8.col-lg-offset-2
+        #gridHistoryLogIn.gridStyleModal.text-center(ui-grid='gridHistoryLogIn' ui-grid-selection)
+.modal-footer
+  button.btn.btn-sm.btn-default(ng-click='$dismiss();') Cancel
+  button.btn.btn-sm.btn-warning(ng-click='removeActions();' ng-if='!!gridHistoryLogIn.data.length' ng-disabled='disableBtn')
+    i.glyphicon.glyphicon-trash
+    |   Șterge istoricul
+  button.btn.btn-sm.btn-success(ng-click='print();' ng-if='!!gridHistoryLogIn.data.length' ng-disabled='disablePrint')
+    i.glyphicon.glyphicon-print
+    |   Print

@@ -1,0 +1,16 @@
+.modal-header
+  span Action history for user: {{::row.first_name}} {{::row.last_name}}
+.modal-body
+  .row
+    h3.text-center.text-danger(ng-show='!gridHistory.data.length') User has no action history !!!
+    section(ng-show='!!gridHistory.data.length')
+      .col-lg-12
+        #gridHistory.gridStyleModal(ui-grid='gridHistory' ui-grid-selection ui-grid-resize-columns)
+.modal-footer
+  button.btn.btn-sm.btn-default(ng-click='$dismiss()') Cancel
+  button.btn.btn-sm.btn-warning(ng-click='removeReportActions();' ng-if='!!gridHistory.data.length' ng-disabled='disableBtn')
+    i.glyphicon.glyphicon-trash
+    |   Delete report actions
+  button.btn.btn-sm.btn-success(ng-click='print();' ng-if='!!gridHistory.data.length' ng-disabled='disablePrint')
+    i.glyphicon.glyphicon-print
+    |   Print

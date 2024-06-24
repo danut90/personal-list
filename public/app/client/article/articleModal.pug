@@ -1,0 +1,60 @@
+.modal-header
+	span(ng-bind='(mm.modal.id ? "Edit" : "Add") + " article"')
+.modal-body
+	.row
+		form.form-horizontal
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-2 Name
+				.col-xs-9.p-0
+					input.form-control.input-sm(ng-model='mm.modal.name' maxlength=255 autofocus)
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-2 Link
+				.col-xs-9.p-0
+					.input-group
+						input.form-control.input-sm(ng-model='mm.modal.link' maxlength=255 autofocus)
+						span.input-group-btn
+							a.btn.btn-sm.btn-default(type='button' href='{{mm.modal.link}}' target='_blank')
+								i.glyphicon.glyphicon-link
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-2.text-nowrap Read Date
+				.col-xs-3.p-0
+					.input-group
+						input.form-control.input-sm.text-center(uib-datepicker-popup='dd.MM.yyyy' ng-model='mm.modal.read_date' is-open='op[0]'
+						datepicker-options='{showWeeks: false}' readonly local-date ng-click='op[0]=!op[0];' datepicker-append-to-body='true')
+						span.input-group-btn
+							button.btn.btn-sm.btn-default(type='button' ng-click='op[0]=!op[0];')
+								i.glyphicon.glyphicon-calendar
+				label.control-label.col-xs-2 Category
+				.col-xs-4.p-0
+					input.form-control.input-sm(ng-model='mm.modal.category' maxlength=255)
+
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-2 File
+				.col-xs-9.p-0(ng-if='!mm.modal.id_file')
+					.input-group
+						input.form-control.input-sm(ng-model='mm.modal.file_name' maxlength=255 ng-disabled='!mm.modal.file && !mm.modal.id')
+						span.input-group-btn
+							button.btn.btn-sm.btn-primary(type='button')
+								label.cursor-pointer
+									input.display-nome-important#inputFile(type='file' file-model='mm.modal.file' name='fisier' accept='file_extension |, .pdf' auto-focus)
+									i.fa.fa-cloud-upload
+									|   Load file
+				.col-xs-9.p-0(ng-if='mm.modal.id_file')
+					.input-group
+						input.form-control.input-sm(ng-model='mm.modal.file_name' maxlength=255 ng-disabled='!mm.modal.file && !mm.modal.id')
+						span.input-group-addon.custom-addon(uib-tooltip='Replace file')
+							label.m-bottom-0
+								input.display-nome-important(type='file' file-model='mm.modal.newFile' name='newFile' accept='file_extension |, .pdf' auto-focus onchange='angular.element(this).scope().fileChanged(this.files)')
+								i.glyphicon.glyphicon-refresh.bold.text-warning
+
+			.col-xs-12
+				label.control-label.col-xs-2 Description
+				.col-xs-9.p-0
+					textarea.form-control.input-sm(ng-model='mm.modal.description' rows=1 auto-grow allow-tab)
+.modal-footer
+	button.btn.btn-sm.btn-default(ng-click='$dismiss();')
+		i.fa.fa-window-close-o
+		span Cancel
+	//button.btn.btn-sm.btn-success(ng-click='mm.save(mm.modal);')
+		i.fa.fa-check
+		span(ng-bind='mm.modal.id ? "Save" : "Add"')

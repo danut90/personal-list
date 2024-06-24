@@ -1,0 +1,28 @@
+.modal-header
+	span(ng-bind='::(modal.id ? "Edit" : "Create") + " account"')
+.modal-body
+	.row
+		form.form-horizontal
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-3 Nume utilizator
+				.col-xs-7
+					input.form-control.input-sm(ng-model='modal.last_name' maxlength=255)
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-3.text-nowrap Prenume utilizator
+				.col-xs-7
+					input.form-control.input-sm(ng-model='modal.first_name' maxlength=255)
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-3 Email
+				.col-xs-7
+					input.form-control.input-sm(ng-model='modal.email' ng-blur='verifyEmail();' maxlength=255)
+			.col-xs-12.p-bottom-5(ng-if='!modal.id')
+				label.control-label.col-xs-3 Parola
+				.col-xs-7
+					input.form-control.input-sm(ng-model='modal.password' maxlength=255)
+			.col-xs-12
+				label.control-label.col-xs-3 Telefon
+				.col-xs-7
+					input.form-control.input-sm(ng-model='modal.phone' allow-number minlength = 10 maxlength= 11)
+.modal-footer
+	button.btn.btn-sm.btn-default(ng-click='$dismiss();') Cancel
+	button.btn.btn-sm.btn-success(ng-click='save();' ng-bind='::(modal.id ? "Save" : "Add")')

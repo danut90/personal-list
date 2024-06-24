@@ -1,0 +1,88 @@
+meta(charset='UTF-8')
+meta(name='viewport' content='width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0')
+meta(http-equiv='X-UA-Compatible' content='IE=edge')
+meta(name='baed125413aa3912cc0452f11058376bda3c799e' content='f7dde7d438ae860b56011f9982db6a1f4ae0a9f9')
+meta(name='description' content='')
+meta(name='keywords' content='')
+meta(name='author' content='Ostasuc Danut')
+title Personal Lists
+
+// Stylesheet
+link(rel='stylesheet' href='lib/bootstrap/dist/css/bootstrap.min.css')
+link(rel='stylesheet' href='lib/angular-toastr/dist/angular-toastr.min.css')
+link(rel='stylesheet' href='lib/angular-ui-grid/ui-grid.min.css')
+link(rel='stylesheet' href='lib/font-awesome/css/font-awesome.min.css')
+
+link(rel='stylesheet' href='lib/angular-dialog-service/dist/dialogs.min.css')
+link(rel='stylesheet' href='lib/angular-ui-select/dist/select.min.css')
+link(rel='stylesheet' href='lib/select2/select2.css')
+link(rel='stylesheet' href='lib/angular-loading/angular-loading.css')
+
+//link(rel='stylesheet' href='customLibs/angular-dialog-service/dist/dialogs.min.css')
+//link(rel='stylesheet' href='customLibs/angular-ui-select/select.min.css')
+//link(rel='stylesheet' href='customLibs/select2/select2.css')
+//link(rel='stylesheet' href='customLibs/angular-loading/angular-loading.css')
+
+link(rel='stylesheet' href='dist/css/app-less.min.css')
+
+// Library
+script(src='lib/jquery/dist/jquery.min.js')
+script(src='lib/socket.io-client/dist/socket.io.js')
+script(src='lib/angular/angular.min.js')
+script(src='lib/angular-cookies/angular-cookies.min.js')
+script(src='lib/angular-resource/angular-resource.min.js')
+script(src='lib/angular-route/angular-route.min.js')
+script(src='lib/angular-sanitize/angular-sanitize.min.js')
+script(src='lib/bootstrap/dist/js/bootstrap.min.js')
+script(src='lib/angular-bootstrap/ui-bootstrap.min.js')
+script(src='lib/angular-bootstrap/ui-bootstrap-tpls.min.js')
+script(src='lib/angular-ui-grid/ui-grid.min.js')
+script(src='lib/angular-toastr/dist/angular-toastr.min.js')
+script(src='lib/angular-toastr/dist/angular-toastr.tpls.min.js')
+script(src='lib/async/dist/async.min.js')
+script(src='lib/lodash/dist/lodash.min.js')
+//script(src='lib/angular-bind-notifier/dist/angular-bind-notifier.js')
+
+
+script(src='lib/angular-dialog-service/dist/dialogs.min.js')
+script(src='lib/ngstorage/ngStorage.min.js')
+script(src='lib/spin.js/spin.js')
+script(src='lib/ngInfiniteScroll/build/ng-infinite-scroll.min.js')
+script(src='lib/angular-loading/angular-loading.min.js')
+script(src='lib/js-xlsx/dist/xlsx.core.min.js')
+//script(src='lib/angular-bootstrap-contextmenu/contextMenu.js')
+script(src='lib/angular-ui-select/dist/select.js')
+
+//script(src='customLibs/angular-dialog-service/dist/dialogs.min.js')
+//script(src='customLibs/ngstorage/ngStorage.min.js')
+//script(src='customLibs/spin.js/spin.js')
+//script(src='customLibs/ngInfiniteScroll/ng-infinite-scroll.min.js')
+//script(src='customLibs/angular-loading/angular-loading.min.js')
+//script(src='customLibs/js-xlsx/dist/xlsx.core.min.js')
+//script(src='customLibs/angular-bootstrap-contextmenu/contextMenu.js')
+//script(src='customLibs/angular-ui-select/select.js')
+//script(src='customLibs/angular-hotkeys/hotkeys.min.js')
+
+// Application
+script(src='dist/admin.min.js')
+script(src='dist/adminUser.min.js')
+//draft
+script(src='dist/adminDraft.min.js')
+//others
+script(src='dist/common.min.js')
+//script(src='dist/clientLibrary.min.js')
+
+body
+	block content
+		body(ng-app='ml-app' ng-csp ng-controller='mainCtrl')
+			div(dw-loading='loading-container' dw-loading-options='{text: "Datele în curs de procesare..."}')
+				include main/header
+				.container-fluid
+					.body
+						div(ng-view='')
+
+script(type='text/javascript').
+	window.onload = function () {
+		window.moveTo(0, 0);
+		window.resizeTo(screen.availWidth, screen.availHeight);
+	};

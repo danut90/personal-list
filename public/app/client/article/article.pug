@@ -1,0 +1,8 @@
+.col-xs-2.p-0
+	button.btn.btn-sm.btn-primary(type='button' ng-click='vm.add();')
+		i.glyphicon.glyphicon-save
+		| 	Add article
+.col-xs-8
+	p.font-title Article list
+.col-xs-12.p-0
+	#grid(ui-grid='vm.grid' ui-grid-selection ui-grid-resize-columns)

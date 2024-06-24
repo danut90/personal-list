@@ -1,0 +1,16 @@
+.modal-header
+	span(ng-bind='(modal.id ? "Edit" : "Create") + " Draft Gender"')
+.modal-body
+	.row
+		form.form-horizontal
+			.col-xs-12
+				label.control-label.col-xs-2 Gender
+				.col-xs-9.p-0
+					input.form-control.input-sm(ng-model='modal.name' maxlength=255 autofocus)
+.modal-footer
+	button.btn.btn-sm.btn-default(ng-click='$dismiss();')
+		i.fa.fa-window-close-o
+		span Cancel
+	button.btn.btn-sm.btn-success(ng-click='save();')
+		i.fa.fa-check
+		span(ng-bind='modal.id ? "Save" : "Add"')

@@ -1,0 +1,9 @@
+.report-view
+    .col-xs-2.p-0.p-bottom-5
+        button.btn.btn-sm.btn-primary(type='button' ng-click='addUser();')
+            i.fa.fa-user-plus
+            |   Add User
+    .col-xs-8
+        p.font-title Users
+    .col-xs-12.p-0
+        .gridStyle#grUser(ui-grid='gridUsers' ui-grid-selection ui-grid-resize-columns)

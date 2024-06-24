@@ -1,0 +1,68 @@
+nav.navbar.navbar-default(role='navigation')
+	.container-fluid
+		.navbar-header
+			//a.slidebar-toggle.back(href='javascript:history.back();')
+					i.glyphicon.glyphicon-arrow-left
+			//a.slidebar-toggle.refresh(href='javascript:location.reload();')
+					i.fa.fa-refresh
+		ul.nav.navbar-nav.navbar-left
+			//li.dropdown
+					a.dropdown-toggle(href='#/organizatie' data-toggle='dropdown')
+							i.glyphicon.glyphicon-home
+							|   Acasă
+			li
+				a.bold(href='#/movie')
+					i.glyphicon.glyphicon-film
+					| 	Movies
+			li
+				a.bold(href='#/actor')
+					i.glyphicon.glyphicon-user
+					| 	Actors
+			li
+				a.bold(href='#/article')
+					i.fa.fa-file-text-o
+					| 	Articles
+
+		ul.nav.navbar-nav.navbar-right
+			li.dropdown
+				a.dropdown-toggle(href='' data-toggle='dropdown')
+					b   {{user.first_name}} {{user.last_name}} &nbsp
+					i.fa.fa-cog.fa-spin.font-20
+				ul.dropdown-menu(role='menu')
+					li(ng-if='$scope.isClient')
+						a(href='' ng-click='editProfile();')
+							i.glyphicon.glyphicon-user
+							| 	Profile
+					li(ng-if='$scope.isClient')
+						a(href='' ng-click='resetPassword();')
+							i.glyphicon.glyphicon-edit
+							| 	Reset password
+					li.divider(ng-if='$scope.isClient')
+					li
+						a(href= '' ng-click='logOut();')
+							i.glyphicon.glyphicon-off
+							| 	Log out
+
+script.
+	$(document).ready(function () {
+		$('.dropdown').hover(
+			function () {
+				$('.dropdown-menu', this).stop(true, true).slideDown(0);
+				$(this).removeClass('open');
+			},
+			function () {
+				$('.dropdown-menu', this).stop(true, true).slideUp(0);
+				$(this).removeClass('open');
+			}
+		);
+		$('.dropdown').click(
+			function (e) {
+				e.stopPropagation();
+				$(this).removeClass('open');
+			}
+		);
+		$('body').tooltip({
+			trigger: 'hover',
+			selector: '[data-toggle="tooltip"]'
+		});
+	});

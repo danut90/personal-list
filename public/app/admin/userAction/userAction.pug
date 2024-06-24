@@ -1,0 +1,45 @@
+.col-xs-12.p-0
+  form.form-horizontal
+    .col-xs-2.p-0
+      label.control-label.col-xs-4 Date
+      .col-xs-8.p-left-right-5
+        .input-group.no-clear-btn
+          input.input-sm.form-control.text-center(uib-datepicker-popup='dd.MM.yyyy' ng-model='ob.date' datepicker-options='{showWeeks: false}' readonly ng-change='loadData(ob)' ng-click='opened=!opened' is-open='opened')
+          span.input-group-btn
+            button.btn.btn-sm.btn-default(type='button' ng-click='opened=!opened')
+              i.glyphicon.glyphicon-calendar
+    .col-xs-8.p-bottom-5
+      p.font-title Log Action
+    .col-xs-2.p-0.text-right
+      label.control-label.col-xs-12.p-0 Actions: {{userAction.length}}
+.col-xs-12.p-0
+  table.table.table-bordered.p-2
+    thead
+      tr.warning
+        th(width='3%' rowspan=2) No.
+        th(width='9%') User
+        th(width='16%') Email
+        th(width='15%') Action
+        th(width='4%') Hour
+        th Details
+      tr.warning(key-navigation)
+        td
+          input.form-control.input-xs(ng-model='::search.user' esc-key='changeFilter("user", true)' ng-change='changeFilter("user")' maxlength=10)
+        td
+          input.form-control.input-xs(ng-model='::search.email' esc-key='changeFilter("email", true)' ng-change='changeFilter("email")' maxlength=10)
+        td
+          input.form-control.input-xs(ng-model='::search.action' esc-key='changeFilter("action", true)' ng-change='changeFilter("action")' maxlength=10)
+        td
+          input.form-control.input-xs(ng-model='::search.date' esc-key='changeFilter("date", true)' ng-change='changeFilter("date")' maxlength=100)
+        td
+          input.form-control.input-xs(ng-model='::search.details' esc-key='changeFilter("details", true)' ng-change='changeFilter("details")' maxlength=100)
+#view.col-xs-12.p-0.view-units
+  table.table.table-hover.table-bordered.table-fixed.p-2
+    tbody(infinite-scroll='changeMaxLimit(userAction, limit)' infinite-scroll-distance='1' infinite-scroll-container='".view-units"')
+      tr(ng-repeat='i in userAction | limitTo: limit.max')
+        td.text-center(width='3%' ng-bind='::$index+1')
+        td(width='9%' ng-bind='i.user')
+        td(width='16%' ng-bind='i.email')
+        td(width='15%' ng-bind='i.action')
+        td.text-center(width='4%' ng-bind='i.date | date : "HH:mm"')
+        td(ng-bind='i.details')

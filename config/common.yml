@@ -1,0 +1,5 @@
+default:
+    port  : #{process.env.PORT}
+    env   : #{process.env.NODE_ENV}
+    sKey  : #{process.env.ENCRYPTION_SECRET_KEY}
+

@@ -1,0 +1,72 @@
+.modal-header
+	span(ng-bind='(mm.modal.id ? "Edit" : "Add") + " actor"')
+.modal-body
+	.row
+		form.form-horizontal
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-2 Name
+				.col-xs-9.p-0
+					input.form-control.input-sm(ng-model='mm.modal.name' maxlength=255 autofocus ng-change='mm.required.name = !mm.modal.name' ng-class='{"bg-danger-i" : mm.required.name}' required)
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-2 Birth Date
+				.col-xs-2.p-0
+					.input-group
+						input.form-control.input-sm.text-center(uib-datepicker-popup='dd.MM.yyyy' ng-model='mm.modal.birth_date' is-open='op[0]'
+						datepicker-options='{showWeeks: false}' readonly local-date ng-click='op[0]=!op[0];' datepicker-append-to-body='true')
+						span.input-group-btn
+							button.btn.btn-sm.btn-default(type='button' ng-click='op[0]=!op[0];')
+								i.glyphicon.glyphicon-calendar
+				label.control-label.col-xs-2 Birth Place
+				.col-xs-5.p-0
+					input.form-control.input-sm(ng-model='mm.modal.birth_place' maxlength=255)
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-2 Note IMDb
+				.col-xs-1.p-0
+					input.form-control.input-sm(ng-model='mm.modal.note_imdb' allow-decimals=1 maxlength=4)
+				label.control-label.col-xs-2 Link IMDb
+				.col-xs-6.p-0
+					.input-group
+						input.form-control.input-sm(ng-model='mm.modal.link_imdb')
+						span.input-group-btn
+							a.btn.btn-sm.btn-default(type='button' href='{{mm.modal.link_imdb}}' target='_blank')
+								i.glyphicon.glyphicon-link
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-2 Note Cinemagia
+				.col-xs-1.p-0
+					input.form-control.input-sm(ng-model='mm.modal.note_cinemagia' allow-decimals=1 maxlength=4)
+				label.control-label.col-xs-2 Link Cinemagia
+				.col-xs-6.p-0
+					.input-group
+						input.form-control.input-sm(ng-model='mm.modal.link_cinemagia')
+						span.input-group-btn
+							a.btn.btn-sm.btn-default(type='button' href='{{mm.modal.link_cinemagia}}' target='_blank')
+								i.glyphicon.glyphicon-link
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-2 Note Cinemarx
+				.col-xs-1.p-0
+					input.form-control.input-sm(ng-model='mm.modal.note_cinemarx' allow-decimals=1 maxlength=4)
+				label.control-label.col-xs-2 Link Cinemarx
+				.col-xs-6.p-0
+					.input-group
+						input.form-control.input-sm(ng-model='mm.modal.link_cinemarx')
+						span.input-group-btn
+							a.btn.btn-sm.btn-default(type='button' href='{{mm.modal.link_cinemarx}}' target='_blank')
+								i.glyphicon.glyphicon-link
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-2 Country
+				.col-xs-2.p-0
+					input.form-control.input-sm(ng-model='mm.modal.country' rows=1 auto-grow allow-tab)
+				label.control-label.col-xs-2 Religion
+				.col-xs-5.p-0
+					input.form-control.input-sm(ng-model='mm.modal.religion' rows=1 auto-grow allow-tab)
+			.col-xs-12
+				label.control-label.col-xs-2 Occupation
+				.col-xs-9.p-0
+					textarea.form-control.input-sm(ng-model='mm.modal.occupation' rows=1 auto-grow allow-tab)
+.modal-footer
+	button.btn.btn-sm.btn-default(ng-click='$dismiss();')
+		i.fa.fa-window-close-o
+		span Cancel
+	button.btn.btn-sm.btn-success(ng-if='!mm.modal.id_actor_from' ng-click='mm.save(mm.modal);')
+		i.fa.fa-check
+		span(ng-bind='mm.modal.id ? "Save" : "Add"')

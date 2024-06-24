@@ -1,0 +1,11 @@
+.modal-header
+    span Info DB user: {{title}}
+.modal-body
+    .row
+        .col-xs-12
+            table.table.table-hover.table-bordered.table-striped.text-center.p-2
+                tr(ng-repeat='(key, value) in response')
+                    td.col-xs-8 {{key}}
+                    td.col-xs-4 {{value}}
+.modal-footer
+    button.btn.btn-sm.btn-default(ng-click='$dismiss();') Cancel

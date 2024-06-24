@@ -1,0 +1,18 @@
+.modal-header
+	span Select Columns for Report
+.modal-body
+	.row
+		.col-xs-12.p-lr-10
+			table.table.table-bordered.p-1
+				thead
+					tr.warning
+						th(width='80%') Column Name
+						th Select
+				tbody
+					tr.cursor-pointer(ng-repeat='r in mm.header[0]' ng-click='r.selected = !r.selected')
+						td.indent-2(width='20%' ng-bind='::r.name')
+						td.text-center
+							i.fa(ng-class='r.selected ? "fa-check-square" : "fa-square"')
+.modal-footer
+	button.btn.btn-xs.btn-default(ng-click='$dismiss()') Cancel
+	button.btn.btn-xs.btn-success(ng-click='mm.save()') Download Excel

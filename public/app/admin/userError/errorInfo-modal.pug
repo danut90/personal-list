@@ -1,0 +1,21 @@
+.modal-header
+	span Error Information: {{modal.createdAt | date: 'dd.MM.yyyy - HH:mm'}}
+.modal-body
+	.row
+		form.form-horizontal
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-1 User
+				.col-xs-11.p-0
+					input.form-control.input-sm(ng-model='modal.userName' readonly)
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-1 Action
+				.col-xs-11.p-0
+					input.form-control.input-sm(ng-model='modal.action' readonly)
+			.col-xs-12
+				label.control-label.col-xs-1 Error
+				.col-xs-11.p-0
+					textarea.form-control.input-sm(ng-model='modal.details' readonly rows=1 elastic)
+.modal-footer
+	button.btn.btn-sm.btn-default(ng-click='$dismiss();')
+		i.fa.fa-window-close-o
+		span Cancel

@@ -1,0 +1,18 @@
+.col-xs-2.p-0
+	button.btn.btn-sm.btn-primary(type='button' ng-click='vm.add();')
+		i.glyphicon.glyphicon-save
+		|  Add movie
+.col-xs-8
+	p.font-title Movie list
+.col-xs-2.p-0.text-right
+	.btn-group
+		button.btn.btn-sm.btn-default(type='button' ng-click='vm.excel();' uib-tooltip='Download Excel')
+			i.fa.fa-file-excel-o.text-success
+			|    Excel
+		.btn-group
+			button.btn.btn-sm.btn-default.dropdown-toggle(type='button' data-toggle='dropdown')
+				span.caret
+			ul.dropdown-menu.dropdown-menu-right
+				li.cursor-pointer.hover.p-4-10.text-nowrap(ng-click='vm.excel(true);') Select Columns
+.col-xs-12.p-0
+	#grid(ui-grid='vm.grid' ui-grid-selection ui-grid-resize-columns)

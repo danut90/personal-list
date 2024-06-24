@@ -1,0 +1,20 @@
+.modal-header
+	span Edit Profile
+.modal-body
+	form.form-horizontal(ng-keypress='($event.which === 13) ? save() : 0')
+		.row
+			.col-xs-12.p-bottom-5
+				label.control-label.col-xs-3 First Name
+				.col-xs-7.p-0
+					input.input-sm.form-control(ng-model='modal.first_name' maxlength=255 autofocus)
+			.col-xs-12
+				label.control-label.col-xs-3 Last Name
+				.col-xs-7.p-0
+					input.input-sm.form-control(ng-model='modal.last_name' maxlength=255)
+.modal-footer
+	button.btn.btn-sm.btn-default(ng-click='$dismiss();')
+		i.fa.fa-close
+		|		Cancel
+	button.btn.btn-sm.btn-success(ng-click='save();')
+		i.fa.fa-save
+		|		Save

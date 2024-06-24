@@ -1,0 +1,6 @@
+node_modules
+public/dist/*
+public/lib/*
+public/customLibs/*
+server\utils\libs\swag\swag.js
+*.html
